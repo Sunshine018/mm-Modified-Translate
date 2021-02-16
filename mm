@@ -70,7 +70,7 @@ q) 退出
     case $opt in
       m) toggle_mnt;;
       d) toggle_disable;;
-      l) echo -e "Installed Modules\n"; ls_mods;;
+      l) echo -e "已安装模块\n"; ls_mods;;
       r) toggle_remove;;
       q) exit 0;;
       c) toggle_com;;
