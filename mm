@@ -14,13 +14,13 @@ img=/data/adb/magisk.img
 [ -f $img ] || img=/data/adb/modules
 
 echo -e "\nMagisk Manager for Recovery Mode (mm-Translate) 2021.02.16
-Copyright (C) 2017-2019, VR25 @ xda-developers
-License: GPLv3+\n"
+版权所有 (C) 2017-2019, VR25 @ xda-developers
+按照 GPLv3+ 开源\n"
 
 trap 'exxit $?' EXIT
 
 if is_mounted /storage/emulated; then
-  echo -e "(!) This is meant to be used in recovery environment only!\n"
+  echo -e "它只能在Recovery环境下使用！\n"
   exit 1
 fi
 
@@ -31,7 +31,7 @@ mount /data 2>/dev/null || :
 mount /cache 2>/dev/null || :
 
 if [ ! -d /data/adb/magisk ]; then
-  echo -e "(!) No Magisk installation found or installed version is not supported.\n"
+  echo -e "本机未安装Magisk或者安装的Magisk不受支持。\n"
   exit 1
 fi
 
@@ -52,15 +52,15 @@ options() {
 
   while :; do
     echo -n "##########################
-l) List installed modules
+l) 列出所有已安装 Magisk 模块
 ##########################
-Toggle
-  c) Core only mode
-  m) Magic mount
-  d) Disable
-  r) Remove
+功能
+  c) 启动 Magisk 核心模式
+  m) 挂载 Magisk.img
+  d) 禁用/启用 Magisk 模块
+  r) 移除 Magisk 模块
 ##########################
-q) Quit
+q) 退出
 ##########################
 
 ?) "
@@ -78,7 +78,7 @@ q) Quit
     break
   done
 
-  echo -en "\n(i) Press <enter> to continue or \"q <enter>\" to quit... "
+  echo -en "\n按下[ENTER]继续/输入q并[ENTER]退出"
   read opt
   [ -z "$opt" ] || exit 0
   echo
@@ -98,7 +98,7 @@ exxit() {
   rmdir $mountPath
   mount -o remount,ro /
   rm -rf $tmpDir
-  [ ${1:-0} -eq 0 ] && { echo -e "\nGoodbye.\n"; exit 0; } || exit $1
+  [ ${1:-0} -eq 0 ] && { echo -e "\n再见，玩机愉快！\n"; exit 0; } || exit $1
 } 2>/dev/null
 
 
@@ -110,7 +110,8 @@ toggle() {
     [ -f $mountPath/$mod/$file ] && echo "$present]" || echo "$absent]"
   done
 
-  echo -en "\nInput pattern(s) (e.g., a dot for all, acc, or fbind|xpo|viper): "
+  echo -en "\n如何使用：输入一个模块名的部分来禁用/启用/删除模块。"
+  echo -en "\n例如，输入一个'.'来禁用/启用/删除所有模块，或者viper/xpo"
   read input
   echo
 
@@ -124,20 +125,20 @@ toggle() {
 
 
 toggle_mnt() {
-  echo -e "Toggle Magic Mount\n"
+  echo -e "已挂载旧版本的 Magisk 镜像。\n"
   [ -f $img ] && { toggle auto_mount ON OFF || :; } \
     || toggle skip_mount OFF ON
 }
 
 
 toggle_disable() {
-  echo -e "Toggle ON/OFF\n"
+  echo -e "模块已被启用/禁用\n"
   toggle disable OFF ON
 }
 
 
 toggle_remove() {
-  echo -e "Mark for Removal ([X])\n"
+  echo -e "已标记删除。这一模块将在下次启动时被移除([X])\n"
   toggle remove X " "
 }
 
@@ -145,10 +146,10 @@ toggle_remove() {
 toggle_com() {
   if [ -f /cache/.disable_magisk ] || [ -f /data/cache/.disable_magisk ]; then
     rm /data/cache/.disable_magisk /cache/.disable_magisk 2>/dev/null || :
-    echo "(i) Core only mode [OFF]"
+    echo "(i) Magisk 核心模式[关]"
   else
     touch /data/cache/.disable_magisk /cache/.disable_magisk 2>/dev/null || :
-    echo "(i) Core only mode [ON]"
+    echo "(i) Magisk 核心模式[开]"
   fi
 }
 
