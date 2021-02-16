@@ -1,4 +1,12 @@
-# Magisk Manager for Recovery Mode (mm)
+# Magisk Manager for Recovery Mode (mm-Translate)
+a translated version of https://github.com/Magisk-Modules-Repo/mm
+
+## CAUTION
+
+该版本系个人为便于使用所作之汉化版本，按照GNU GPL V3许可证开源，除必要翻译外，未进行任何形式之修改，绝不进行任何恶意行为，欢迎各路大神比对源代码。
+请注意：本版mm-Translate与原版作者无任何关联。
+
+下方系原项目README。
 
 
 
@@ -80,7 +88,9 @@ Features list
 - [Telegram profile](https://t.me/vr25xda/)
 - [XDA thread](https://forum.xda-developers.com/apps/magisk/module-tool-magisk-manager-recovery-mode-t3693165)
 
+## CAUTION 2
 
+上述所有链接全部指向VR25本人之Paypal，Facebook，Github，Telegram和XDA，与汉化者没有任何关联，在Paypal上的捐赠绝不会被重定向至汉化者本人——我甚至没有Paypal账户！
 
 ## LATEST CHANGES
 
