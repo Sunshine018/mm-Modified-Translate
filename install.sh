@@ -233,7 +233,7 @@ version_info() {
     ui_print "从此以后，你无需重新安装，每次运行只需遵照上述方法即可"
   fi
 
-  ui_print "MM本体存放于/sdcard目录下，理论上一次安装终身有效(实际上你也无法通过卸载方式完全删除MM)"
-  ui_print "以后若无需使用，直接在该目录下删除mm并卸载模块即可"
+  ui_print "MM本体存放于/sdcard目录下，理论上一次安装终身有效"
+  ui_print "以后若无需使用，直接卸载模块即可"
   ui_print " "
 }
