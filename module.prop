@@ -1,0 +1,7 @@
+id=mm
+name=Magisk Manager for Recovery Mode (mm-Translate)
+version=2021.02.16
+versionCode=202102160
+author=VR25 @ xda-developers,
+description=在Recovery中管理你的Magisk模块。使用方法：在Recovery终端里输入sh /sdcard/mm
+minMagisk=17000
