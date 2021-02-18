@@ -125,7 +125,7 @@ toggle() {
 
 
 toggle_mnt() {
-  echo -e "切换自动挂载成功。\n"
+  echo -e "切换自动挂载成功\n"
   [ -f $img ] && { toggle auto_mount ON OFF || :; } \
     || toggle skip_mount OFF ON
 }
