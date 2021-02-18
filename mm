@@ -56,7 +56,7 @@ l) 列出所有已安装 Magisk 模块
 ##########################
 功能
   c) 启动 Magisk 核心模式
-  m) 挂载 Magisk.img
+  m) 更改 自动挂载选项
   d) 禁用/启用 Magisk 模块
   r) 移除 Magisk 模块
 ##########################
@@ -125,7 +125,7 @@ toggle() {
 
 
 toggle_mnt() {
-  echo -e "已挂载旧版本的 Magisk 镜像。\n"
+  echo -e "切换自动挂载成功。\n"
   [ -f $img ] && { toggle auto_mount ON OFF || :; } \
     || toggle skip_mount OFF ON
 }
